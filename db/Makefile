@@ -1,0 +1,23 @@
+COURIERS_DB_IMAGE_NAME ?= couriers-db
+COURIERS_DB_NAME ?=  couriers
+COURIERS_DB_USERNAME ?= couriers
+COURIERS_DB_PASSWORD ?= couriers
+COURIERS_DB_PORT ?= 5432
+COURIERS_DB_HOST ?= couriers-db
+COURIERS_NETWORK ?= "couriers"
+
+.PHONY: build
+build:
+	docker build -t $(COURIERS_DB_IMAGE_NAME) -f Dockerfile .
+
+.PHONY: run
+run:
+	- docker network create $(COURIERS_NETWORK)
+	APP_NETWORK=$(COURIERS_NETWORK) \
+	APP_DB_IMAGE_NAME=$(COURIERS_DB_IMAGE_NAME) \
+    APP_DB_USERNAME=$(COURIERS_DB_USERNAME) \
+    APP_DB_PASSWORD=$(COURIERS_DB_PASSWORD) \
+    APP_DB_NAME=$(COURIERS_DB_NAME) \
+    APP_DB_PORT=$(COURIERS_DB_PORT) \
+    APP_DB_HOST=$(COURIERS_DB_HOST) \
+	docker-compose -f docker-compose.yaml up -d

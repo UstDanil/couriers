@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "Couriers api"
+version = "1"
+description = ""
+authors = ["Kuzin Danil"]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^5.0"
+djangorestframework = "^3.14.0"
+django-filter = "^2.4.0"
+gunicorn = "^21.2.0"
+SQLAlchemy = "^2.0.23"
+psycopg2 = "^2.9.9"
+pydantic = "^2.5.2"
+pydantic-settings = "^2.1.0"
+pylint = "^3.0.2"
+
+[build-system]
+requires = ["poetry-core>=1.8.1"]
+build-backend = "poetry.core.masonry.api"
