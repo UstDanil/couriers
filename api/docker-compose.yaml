@@ -12,8 +12,6 @@ services:
       - DB_HOST=${APP_DB_HOST}
     ports:
       - "8008:8008"
-    depends_on:
-      -  couriers-db
 
 networks:
   default:

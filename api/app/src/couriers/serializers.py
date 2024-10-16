@@ -13,8 +13,6 @@ def is_phone_valid(phone: str):
 def validate_worker_id(worker_id):
     worker = get_worker_by_id(worker_id)
     if not worker:
-        return worker
-    else:
         raise serializers.ValidationError("Worker with such id doesn't exist")
 
 
@@ -27,7 +25,7 @@ def validate_couriers_category(category):
 
 
 def validate_couriers_status(status):
-    is_status_valid = str(status) in [st.value for st in WorkerStatus]
+    is_status_valid = status in [st.value for st in WorkerStatus]
     if is_status_valid:
         return status
     else:
@@ -53,7 +51,7 @@ class BaseSerializer(serializers.Serializer):
 
 class Service1Serializer(BaseSerializer):
     id = serializers.UUIDField(required=False)
-    status = serializers.IntegerField()
+    status = serializers.CharField()
     category = serializers.CharField()
     document = serializers.CharField(allow_null=True, default=None)
 
@@ -70,7 +68,7 @@ class Service1Serializer(BaseSerializer):
 
 class Service2Serializer(BaseSerializer):
     id = serializers.UUIDField(required=False)
-    status = serializers.IntegerField()
+    status = serializers.CharField()
 
     def validate(self, data):
         try:

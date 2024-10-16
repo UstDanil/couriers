@@ -16,9 +16,9 @@ class WorkerCategory(str, enum.Enum):
 
 
 class WorkerStatus(str, enum.Enum):
-    FIRED = 1
-    TEMPORARILY_NOT_WORKING = 2
-    WORKING = 3
+    FIRED = "1"
+    TEMPORARILY_NOT_WORKING = "2"
+    WORKING = "3"
 
 
 @dataclass

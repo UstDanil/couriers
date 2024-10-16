@@ -25,7 +25,7 @@ def upgrade() -> None:
                     sa.Column('first_name', sa.String(), nullable=False),
                     sa.Column('last_name', sa.String(), nullable=False),
                     sa.Column('patronymic', sa.String(), nullable=True),
-                    sa.Column('status', sa.Integer(), nullable=False, comment='1-уволен, 2-временно не работает, '
+                    sa.Column('status', sa.String(), nullable=False, comment='1-уволен, 2-временно не работает, '
                                                                               '3-работает'),
                     sa.Column('category', sa.String(), nullable=False),
                     sa.Column('document', sa.String(), nullable=True),

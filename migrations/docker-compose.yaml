@@ -10,8 +10,6 @@ services:
       - DB_DATABASE=${APP_DB_NAME}
       - DB_PORT=${APP_DB_PORT}
       - DB_HOST=${APP_DB_HOST}
-    depends_on:
-      -  couriers-db
 
 networks:
   default:
